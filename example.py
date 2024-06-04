@@ -17,7 +17,8 @@ config.k_bits = 2 # KiVi currently support 2/4 K/V bits
 config.v_bits = 2
 config.group_size = 32 
 config.residual_length = 32 # corresponding to the number of recent fp16 tokens
-CACHE_DIR = "./"
+# CACHE_DIR = "./"
+CACHE_DIR = None
 
 model = LlamaForCausalLM_KIVI.from_pretrained(
     pretrained_model_name_or_path='meta-llama/Llama-2-7b-hf',
