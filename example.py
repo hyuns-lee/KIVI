@@ -10,8 +10,11 @@ from datasets import load_dataset
 # For reproducibility
 random.seed(0)
 torch.manual_seed(0)
+
 model_name = "meta-llama/Meta-Llama-3-8B-Instruct"
-model_name = "meta-llama/Llama-2-7b-hf"
+#model_name = "meta-llama/Llama-2-7b-hf"
+
+# Llama3 model_name
 config = LlamaConfig.from_pretrained(model_name)
 
 config.k_bits = 2 # KiVi currently support 2/4 K/V bits
@@ -20,6 +23,7 @@ config.group_size = 32
 config.residual_length = 32 # corresponding to the number of recent fp16 tokens
 # CACHE_DIR = "./"
 CACHE_DIR = None
+
 
 model = LlamaForCausalLM_KIVI.from_pretrained(
     pretrained_model_name_or_path=model_name,
